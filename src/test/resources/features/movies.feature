@@ -24,7 +24,7 @@ Background: User is on Main Page
     And User selects "4DX" technology
     And User selects "RE'LUX" technology
     And User selects "Forum Lviv" cinema
-    Then Only "Rukhuk" technology is selected
+    Then Only "RE'LUX" technology is selected
 
         @showtimes @smoke @regression
   Scenario Outline: User filters movies by city, period and technology
