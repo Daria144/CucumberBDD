@@ -3,6 +3,7 @@ package com.planetaKino.utils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
@@ -15,12 +16,14 @@ import static com.planetaKino.utils.ConfigProperties.getProperty;
 public class BaseClass {
     public static WebDriver driver;
     public static WebDriverWait wait;;
+    private ChromeOptions options;
 
     public void launch(){
         System.setProperty(getProperty("webdriver"), getProperty("driverpath"));
-        driver = new ChromeDriver();
+        options = new ChromeOptions();
+        options.addArguments("--window-size=1920x1080");
+        driver = new ChromeDriver(options.addArguments("--headless"));
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
 
     }
 
