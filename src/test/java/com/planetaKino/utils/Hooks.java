@@ -16,16 +16,6 @@ public class Hooks extends BaseClass{
 
     @After
     public void teardown(Scenario scenario) {
-        try {
-            String screenshotName = scenario.getName().replaceAll("", "_");
-            if (scenario.isFailed()) {
-                TakesScreenshot ts = (TakesScreenshot) driver;
-                byte[] screenshot = ts.getScreenshotAs(OutputType.BYTES);
-                scenario.attach(screenshot, "img/png", screenshotName);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         closeDriver();
     }
 }
